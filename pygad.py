@@ -1695,7 +1695,7 @@ class GA:
             # The new offspring has its second half of its genes from the second parent.
             offspring[k, crossover_point:] = parents[parent2_idx, crossover_point:]
 
-            if (self.mutation_type is None) and (self.allow_duplicate_genes == False):
+            if self.allow_duplicate_genes == False:
                 if self.gene_space is None:
                     offspring[k], _, _ = self.solve_duplicate_genes_randomly(solution=offspring[k],
                                                                                          min_val=self.random_mutation_min_val,
@@ -1761,7 +1761,7 @@ class GA:
             # The genes between the 2 points are copied from the second parent.
             offspring[k, crossover_point1:crossover_point2] = parents[parent2_idx, crossover_point1:crossover_point2]
 
-            if (self.mutation_type is None) and (self.allow_duplicate_genes == False):
+            if self.allow_duplicate_genes == False:
                 if self.gene_space is None:
                     offspring[k], _, _ = self.solve_duplicate_genes_randomly(solution=offspring[k],
                                                                                          min_val=self.random_mutation_min_val,
@@ -1821,7 +1821,7 @@ class GA:
                     # The gene will be copied from the second parent if the current gene index is 1.
                     offspring[k, gene_idx] = parents[parent2_idx, gene_idx]
 
-            if (self.mutation_type is None) and (self.allow_duplicate_genes == False):
+            if self.allow_duplicate_genes == False:
                 if self.gene_space is None:
                     offspring[k], _, _ = self.solve_duplicate_genes_randomly(solution=offspring[k],
                                                                                          min_val=self.random_mutation_min_val,
@@ -1877,7 +1877,7 @@ class GA:
             gene_sources = numpy.random.randint(0, 2, size=self.num_genes)
             offspring[k, :] = numpy.where(gene_sources == 0, parents[parent1_idx, :], parents[parent2_idx, :])
 
-            if (self.mutation_type is None) and (self.allow_duplicate_genes == False):
+            if self.allow_duplicate_genes == False:
                 if self.gene_space is None:
                     offspring[k], _, _ = self.solve_duplicate_genes_randomly(solution=offspring[k],
                                                                                          min_val=self.random_mutation_min_val,
