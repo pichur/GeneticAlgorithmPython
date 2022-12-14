@@ -3376,7 +3376,7 @@ class GA:
             plot_type: Type of the plot which can be either "plot" (default), "scatter", or "bar".
             color: Color of the plot which defaults to "#3870FF".
             save_dir: Directory to save the figure.
-
+            show: For True show the plot
         Returns the figure.
         """
 
