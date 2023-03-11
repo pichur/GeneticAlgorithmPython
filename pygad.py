@@ -3361,7 +3361,8 @@ class GA:
                     font_size=14, 
                     plot_type="plot",
                     color="#3870FF",
-                    save_dir=None):
+                    save_dir=None,
+                    show=True):
 
         """
         Creates, shows, and returns a figure that summarizes how the fitness value evolved by generation. Can only be called after completing at least 1 generation. If no generation is completed, an exception is raised.
@@ -3375,7 +3376,7 @@ class GA:
             plot_type: Type of the plot which can be either "plot" (default), "scatter", or "bar".
             color: Color of the plot which defaults to "#3870FF".
             save_dir: Directory to save the figure.
-
+            show: For True show the plot
         Returns the figure.
         """
 
@@ -3399,7 +3400,8 @@ class GA:
         if not save_dir is None:
             matplotlib.pyplot.savefig(fname=save_dir, 
                                       bbox_inches='tight')
-        matplotlib.pyplot.show()
+        if show:
+            matplotlib.pyplot.show()
 
         return fig
 
